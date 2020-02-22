@@ -9,19 +9,16 @@
 import Foundation
 
 class inputsOutputsData{
-    func printConsole(_ message:String){
-    print(message)
-    }
-    
+   
     //This function print the main menu
     func printMainMenu() {
-        printConsole("\n\t\t   D E S C R I P C I Ó N ")
-        printConsole("  Este programa calcula el  RFC dependiendo el tipo de persona.")
-        printConsole("  Las opciones son : Persona Moral ó Persona Física")
-        printConsole("  Dependiento el tipo de persona, te pedirá ciertos datos")
-        printConsole("\t Ejecute de nuevo para realizar proceso.")
-        printConsole("\t Para más información ejecute con -h")
-        printConsole("\t EJEMPLO: ./SegundaParte -h")
+        print("\n\n\t\t   D E S C R I P C I Ó N ")
+        print("  Este programa calcula el  RFC dependiendo el tipo de persona.")
+        print("  Las opciones son : Persona Moral ó Persona Física")
+        print("  Dependiento el tipo de persona, te pedirá ciertos datos")
+        print("\t Ejecute de nuevo para realizar proceso.")
+        print("\t Para más información ejecute con -h")
+        print("\t EJEMPLO: ./SegundaParte -h \n\n\n")
     }
     
     //This function collect the data entered by the user

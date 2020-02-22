@@ -8,24 +8,37 @@
 
 import Foundation
 
+
 class MainData {
-    let InputsOutputsData = inputsOutputsData()
     
     func DataChoice() {
-        if CommandLine.argc > 1 {
-            InputsOutputsData.printMainMenu()
-        } else {
-            InputsOutputsData.printConsole("\n\t\t ------ P R A C T I C A   1 ------")
-            InputsOutputsData.printConsole("\t\t\tBy: Diana Aviles")
-            InputsOutputsData.printConsole("\t    Registro Federal de Contribuyentes   RFC")
-            InputsOutputsData.printConsole("\n\n\t\t    Existen estas Opciones:\n")
-            InputsOutputsData.printConsole("\t\t      1-Personas Físicas")
-            InputsOutputsData.printConsole("\t\t      2-Personas Morales")
+        let InputsOutputsData = inputsOutputsData()
+        var numRegresar = Int()
+        
+        repeat {
+            print("\n\t\t ------ P R A C T I C A   1 ------")
+            print("\t\t\tBy: Diana Aviles")
+            print("\t    Registro Federal de Contribuyentes   RFC")
+            print("\n\n\t\t    Existen estas Opciones:\n")
+            print("\t\t      a-Personas Físicas")
+            print("\t\t      b-Personas Morales")
             let TypePerson = InputsOutputsData.getInputS()
             
-            InputsOutputsData.printConsole(" ESCOGISTE : \(TypePerson)")
-            
-        }
+            switch TypePerson {
+            case "a":
+                numRegresar = 0
+                print("\n\t\t P E R S O N A S   F I S I C A S\n")
+                
+            case "b":
+                numRegresar = 0
+                print("\n\t\t P E R S O N A S   M O R A L E S\n")
+                
+            default:
+                print("\n\t\t NO EXISTE LA OPCIÓN ESCOGE OTRA OPCION\n\n")
+                numRegresar = 1
+            }
+        }while numRegresar==1
+    
     }
 }
 

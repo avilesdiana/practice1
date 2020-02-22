@@ -9,12 +9,20 @@
 import Foundation
 
 
-// Validar la entrada de arguemmentos = 0
-//Limpiar terminar cuando regrese aqui
-//Validar que con -h imprima la ayuda y que no ingrese mas argumentos o diferentes de -h
 
-
+//main menu to choose options
 let start = MainData()
-let (argc,argumentos) = (CommandLine.argc, CommandLine.arguments)
-start.DataChoice()
+let InputsOutputsData = inputsOutputsData()
 
+var (argc,argumentos) = (CommandLine.argc, CommandLine.arguments)
+
+if (argc > 1){
+    if(argumentos[1] == "help"){
+        InputsOutputsData.printMainMenu()
+    }else {
+        print("\n\n No es la manera correcta, Ingrese de esta forma:")
+        print("\t EJEMPLO: ./SegundaParte help \n\n")
+    }
+} else {
+    start.DataChoice()
+}
