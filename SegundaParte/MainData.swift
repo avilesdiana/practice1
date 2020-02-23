@@ -20,15 +20,12 @@ class MainData {
             print("\t\t\tBy: Diana Aviles")
             print("\t    Registro Federal de Contribuyentes   RFC")
             print("\n\n\t\t    Existen estas Opciones:\n")
-            print("\t\t      A-Personas Físicas")
-            print("\t\t      B-Personas Morales")
-            print("\t\t      C-Salir")
-            
-            //Uppercase de TyperPrsom
-
+            print("\t\t      a-Personas Físicas")
+            print("\t\t      b-Personas Morales")
+            print("\t\t      c-Salir")
             let TypePerson = InputsOutputsData.getInputS()
             
-            switch TypePerson {
+            switch TypePerson.lowercased(){
             case "a" :
                 numRegresar = 0
                 print("\n\t\t P E R S O N A S   F I S I C A S\n")
