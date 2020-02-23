@@ -13,18 +13,22 @@ import Foundation
 //main menu to choose options
 let start = MainData()
 let InputsOutputsData = inputsOutputsData()
+let dictionary = dictionaries()
 
 var (argc,argumentos) = (CommandLine.argc, CommandLine.arguments)
 
 if (argc > 1){
     if(argumentos[1] == "help"){
         //Print the help menu
+        InputsOutputsData.clearScreen()
         InputsOutputsData.printMainMenu()
     }else {
-        print("\n\n No es la manera correcta, Ingrese de esta forma:")
-        print("\t EJEMPLO: ./SegundaParte help \n\n")
+        //Entered the arguments wrong
+        InputsOutputsData.clearScreen()
+        InputsOutputsData.wrongOption()
     }
 } else {
     //run the menu of choice
+    InputsOutputsData.clearScreen()
     start.DataChoice()
 }

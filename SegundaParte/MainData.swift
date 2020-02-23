@@ -8,37 +8,37 @@
 
 import Foundation
 
-
 class MainData {
     
     func DataChoice() {
         let InputsOutputsData = inputsOutputsData()
+        let moralPerson = moralPersonClass()
+        let physicPerson = physicalPersonClass()
         var numRegresar = Int()
         
         repeat {
-            print("\n\t\t ------ P R A C T I C A   1 ------")
-            print("\t\t\tBy: Diana Aviles")
-            print("\t    Registro Federal de Contribuyentes   RFC")
-            print("\n\n\t\t    Existen estas Opciones:\n")
-            print("\t\t      a-Personas Físicas")
-            print("\t\t      b-Personas Morales")
-            print("\t\t      c-Salir")
+            InputsOutputsData.printP1Info()
             let TypePerson = InputsOutputsData.getInputS()
             
             switch TypePerson.lowercased(){
             case "a" :
                 numRegresar = 0
-                print("\n\t\t P E R S O N A S   F I S I C A S\n")
+                InputsOutputsData.clearScreen()
+                physicPerson.dataChoiceFP()
                 
             case "b" :
                 numRegresar = 0
-                print("\n\t\t P E R S O N A S   M O R A L E S\n")
+                InputsOutputsData.clearScreen()
+                moralPerson.dataChoiceMP()
+                
             case "c":
                 numRegresar = 0
-                print("\n\t\t R E G R E S E   P R O N T O \n")
+                InputsOutputsData.clearScreen()
+                InputsOutputsData.comeBack()
                 
             default:
-                print("\n\t\t NO EXISTE LA OPCIÓN ESCOGE OTRA OPCION\n\n")
+                InputsOutputsData.clearScreen()
+                InputsOutputsData.tryAgain()
                 numRegresar = 1
             }
         }while numRegresar==1

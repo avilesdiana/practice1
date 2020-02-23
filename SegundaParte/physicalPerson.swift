@@ -1,21 +1,22 @@
 //
-//  moralPerson.swift
+//  physicalPerson.swift
 //  SegundaParte
 //
-//  Created by daviles on 2/19/20.
+//  Created by DianaAviles on 23/02/20.
 //  Copyright © 2020 daviles. All rights reserved.
 //
 
 import Foundation
-
 //Class about moral person
+//4 letters, 6 digits
 
-class moralPersonClass{
+
+class physicalPersonClass {
     let InputsOutputsData = inputsOutputsData()
     let dictionary = dictionaries()
     
-    func dataChoiceMP() {
-        print("\n\t\t P E R S O N A S   M O R A L E S\n")
+    func dataChoiceFP() {
+        print("\n\t\t P E R S O N A S   F I S I C A S\n")
     }
     
 }
