@@ -79,25 +79,53 @@ class validations {
     }
     
     //
-    func filterAccentFromName(fLN : String, mLN: String, nameS : String ) -> (String, String, String) {
+    func accentName(fLN : String, mLN: String, nameS : String ) -> (fLNN : String, mLNN: String, nameSS : String )  {
         
-        var arrayNames : [String] = [fLN, mLN, nameS]
-        for (index, var name) in arrayNames.enumerated(){
-            name = name.uppercased()
+        var fLNN = ""
+        var mLNN = ""
+        var nameSS = ""
+        
+        var aNames : [String] = [fLN, mLN, nameS]
+        for (index, var name) in aNames.enumerated(){
             name = name.replacingOccurrences(of: "Á", with: "A")
+            name = name.replacingOccurrences(of: "À", with: "A")
             name = name.replacingOccurrences(of: "É", with: "E")
+            name = name.replacingOccurrences(of: "È", with: "E")
             name = name.replacingOccurrences(of: "Í", with: "I")
+            name = name.replacingOccurrences(of: "Ì", with: "E")
             name = name.replacingOccurrences(of: "Ó", with: "O")
+            name = name.replacingOccurrences(of: "Ò", with: "O")
             name = name.replacingOccurrences(of: "Ú", with: "U")
+            name = name.replacingOccurrences(of: "Ù", with: "U")
             name = name.replacingOccurrences(of: "Ñ", with: "&")
-            arrayNames[index] = name
+            aNames[index] = name
         }
-        print("SI ESTOY AQUI \(fLN),\(mLN),\(nameS)")
-        return (fLN,mLN, nameS)
+        
+        fLNN = aNames[0]
+        mLNN = aNames[1]
+        nameSS = aNames[2]
+        
+        return (fLNN,mLNN, nameSS)
         
     }
     //
-    
+    func charactersSpecial(wordS : String) -> Int{
+        let charSpe = ["!","$","%","&","/","(",")","=","+","[","]","{","}",">","<","*","–","^","º","ª","\\","·","´","`","Ç","ç"]
+        var invalid = Bool()
+        var validate = Int()
+        
+        
+        for character in wordS{
+            if charSpe.contains(String(character)){
+                invalid = true
+                if invalid == true {
+                    validate = 5
+                }
+            }
+        }
+        
+          return validate
+    }
     //
     func validationError(num : Int) -> Int{
         var validate : Int
@@ -115,6 +143,9 @@ class validations {
             validate = 1
         case 4:
             print("NO EXISTE EL DÌA")
+            validate = 1
+        case 5:
+            print("NO PUEDE PONER CARACTERES ESPECIALES")
             validate = 1
         default:
             validate = 0

@@ -48,6 +48,7 @@ class naturalPersonClass {
             //Validar que no tenga caracteres especiaes
             inputDataPP.fatherLastName = InputsOutputsData.getInputS()
             valiNum1 = validation.validationStringComplete(words: inputDataPP.fatherLastName)
+            valiNum1 = validation.charactersSpecial(wordS: inputDataPP.fatherLastName)
             valiNum1 = validation.validationError(num: valiNum1)
         } while valiNum1 == 1
         
@@ -56,6 +57,7 @@ class naturalPersonClass {
             //Validar que no tenga caracteres especiaes
             inputDataPP.motherLastName = InputsOutputsData.getInputS()
             valiNum1 = validation.validationStringComplete(words: inputDataPP.motherLastName)
+            valiNum1 = validation.charactersSpecial(wordS: inputDataPP.motherLastName)
             valiNum1 = validation.validationError(num: valiNum1)
         } while valiNum1 == 1
         
@@ -64,6 +66,7 @@ class naturalPersonClass {
             //Validar que no tenga caracteres especiaes
             inputDataPP.names = InputsOutputsData.getInputS()
             valiNum1 = validation.validationStringComplete(words: inputDataPP.names)
+            valiNum1 = validation.charactersSpecial(wordS: inputDataPP.names)
             valiNum1 = validation.validationError(num: valiNum1)
         } while valiNum1 == 1
         

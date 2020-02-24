@@ -15,6 +15,7 @@ class MainData {
         let moralPerson = moralPersonClass()
         let naturalPerson = naturalPersonClass()
         var numRegresar = Int()
+        let validation = validations()
         
         repeat {
             InputsOutputsData.printP1Info()
@@ -25,8 +26,11 @@ class MainData {
                 
                 InputsOutputsData.clearScreen()
                 let data = naturalPerson.dataChoiceFP()
+                let data1 = validation.accentName(fLN: data.fLN, mLN: data.mLN, nameS: data.nLN)
+               
                 
-                print("\(data.fLN), \(data.mLN), \(data.nLN), \(data.aNP), \(data.mNP), \(data.dNP)")
+                print(" HASTA AQUI VOY \(data1.fLNN), \(data1.mLNN), \(data1.nameSS)")
+                
                 numRegresar = 1
               
                 
