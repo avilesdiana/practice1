@@ -13,7 +13,7 @@ class MainData {
     func DataChoice() {
         let InputsOutputsData = inputsOutputsData()
         let moralPerson = moralPersonClass()
-        let physicPerson = physicalPersonClass()
+        let naturalPerson = naturalPersonClass()
         var numRegresar = Int()
         
         repeat {
@@ -22,27 +22,31 @@ class MainData {
             
             switch TypePerson.lowercased(){
             case "a" :
-                numRegresar = 0
+                
                 InputsOutputsData.clearScreen()
-                physicPerson.dataChoiceFP()
+                let data = naturalPerson.dataChoiceFP()
+                
+                print("\(data.fLN), \(data.mLN), \(data.nLN), \(data.aNP), \(data.mNP), \(data.dNP)")
+                numRegresar = 1
               
                 
             case "b" :
-                numRegresar = 0
+               
                 InputsOutputsData.clearScreen()
                 moralPerson.dataChoiceMP()
-                
+                 numRegresar = 1
             case "c":
-                numRegresar = 0
+                
                 InputsOutputsData.clearScreen()
                 InputsOutputsData.comeBack()
+                numRegresar = 0
                 
             default:
                 InputsOutputsData.clearScreen()
                 InputsOutputsData.tryAgain()
                 numRegresar = 1
             }
-        }while numRegresar==1
+        }while numRegresar == 1
     
     }
 }

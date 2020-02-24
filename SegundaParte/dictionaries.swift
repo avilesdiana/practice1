@@ -230,7 +230,7 @@ class dictionaries{
     
     
     //Table 6 - Words that are not used in the RFC of physical persons
-    let wordsNotUseRFCPhyscalPerson = [
+    let wordsNotUseRFCNaturalPerson = [
         "D",
         "DEL",
         "LA",
@@ -319,9 +319,9 @@ class dictionaries{
         "Z" ]
     
     //
-    let nameWithChCLlL = [
-        "CH",
-        "LL"
+    let nameWithChCLlL : [String: String] = [
+        "CH" : "C",
+        "LL" : "L"
     ]
     //
 }

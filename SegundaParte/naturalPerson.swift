@@ -11,9 +11,9 @@ import Foundation
 //4 letters, 6 digits
 
 
-class physicalPersonClass {
+class naturalPersonClass {
     
-    struct physicalPersonData {
+    struct naturalPersonData {
         var fatherLastName = ""
         var motherLastName = ""
         var names = ""
@@ -28,19 +28,16 @@ class physicalPersonClass {
     let InputsOutputsData = inputsOutputsData()
     let dictionary = dictionaries()
     let validation = validations()
-    var inputDataPP = physicalPersonData()
+    var inputDataPP = naturalPersonData()
     let date = Date()
     var validationInt = Bool()
     
     
     
     
-    func dataChoiceFP() {
+    func dataChoiceFP() -> (fLN: String, mLN: String, nLN: String, aNP: Int, mNP: Int, dNP: Int) {
         
         var valiNum1 = Int()
-        
-        
-        
         
         
         print("\n\t\t P E R S O N A S   F I S I C A S\n")
@@ -115,6 +112,7 @@ class physicalPersonClass {
         
        //print("\(physicalPersonData(fatherLastName: inputDataPP.fatherLastName, motherLastName: inputDataPP.motherLastName, names: inputDataPP.names, birthYear: "0", year: inputDataPP.year, birthMonth: "0", month: inputDataPP.month, birthDay: "0", day: inputDataPP.day) )")
         
+        return(inputDataPP.fatherLastName.uppercased(), inputDataPP.motherLastName.uppercased(), inputDataPP.names.uppercased(), inputDataPP.year, inputDataPP.month, inputDataPP.day)
     }
     
 }
