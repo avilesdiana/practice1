@@ -9,7 +9,7 @@
 import Foundation
 
 class validations {
-    
+    let date = DateComponents()
     //
     func validationStringComplete(words: String) -> Int {
         let caracteres: Int = words.count
@@ -35,7 +35,48 @@ class validations {
     //}
     
     //
+    func isInt(string: String) -> Bool {
+        return Int(string) != nil
+    }
     
+    //
+    func futureYear(num: Int) -> Int {
+        var validate : Int
+        
+        // if(num > date.year!){
+        if(num > 2020){
+            validate = 2
+        }else{
+            validate = 0
+        }
+        return validate
+    }
+    
+    //
+    func monthError(num: Int) -> Int {
+        var validate : Int
+        
+        // if(num > date.year!){
+        if(num > 12){
+            validate = 3
+        }else{
+            validate = 0
+        }
+        return validate
+    }
+    
+    //
+    func dayError(num: Int) -> Int {
+        var validate : Int
+        
+        // if(num > date.year!){
+        if(num > 31){
+            validate = 4
+        }else{
+            validate = 0
+        }
+        return validate
+    }
     
     
     //
@@ -46,6 +87,15 @@ class validations {
         switch num {
         case 1:
             print("Es un caracter, Ingrese palabra Completa")
+            validate = 1
+        case 2:
+            print("NO INGRESE UN AÑO FUTURO ")
+            validate = 1
+        case 3:
+            print("NO EXISTE EL MES")
+            validate = 1
+        case 4:
+            print("NO EXISTE EL DÌA")
             validate = 1
         default:
             validate = 0

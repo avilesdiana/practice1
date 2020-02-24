@@ -18,20 +18,30 @@ class physicalPersonClass {
         var motherLastName = ""
         var names = ""
         var birthYear = ""
-        var birthMont = ""
+        var year = 0
+        var birthMonth = ""
+        var month = 0
         var birthDay = ""
+        var day = 0
     }
     
     let InputsOutputsData = inputsOutputsData()
     let dictionary = dictionaries()
     let validation = validations()
-    
-    let date = Date()
-    
     var inputDataPP = physicalPersonData()
-    var valiNum1 = Int()
-    var year = Int()
+    let date = Date()
+    var validationInt = Bool()
+    
+    
+    
+    
     func dataChoiceFP() {
+        
+        var valiNum1 = Int()
+        
+        
+        
+        
         
         print("\n\t\t P E R S O N A S   F I S I C A S\n")
         print(" Ingresar los siguientes datos...\n")
@@ -42,7 +52,7 @@ class physicalPersonClass {
             inputDataPP.fatherLastName = InputsOutputsData.getInputS()
             valiNum1 = validation.validationStringComplete(words: inputDataPP.fatherLastName)
             valiNum1 = validation.validationError(num: valiNum1)
-        } while valiNum1 >= 1
+        } while valiNum1 == 1
         
         repeat {
             print("Apellido materno: ")
@@ -50,7 +60,7 @@ class physicalPersonClass {
             inputDataPP.motherLastName = InputsOutputsData.getInputS()
             valiNum1 = validation.validationStringComplete(words: inputDataPP.motherLastName)
             valiNum1 = validation.validationError(num: valiNum1)
-        } while valiNum1 >= 1
+        } while valiNum1 == 1
         
         repeat {
             print("Nombres: ")
@@ -58,19 +68,49 @@ class physicalPersonClass {
             inputDataPP.names = InputsOutputsData.getInputS()
             valiNum1 = validation.validationStringComplete(words: inputDataPP.names)
             valiNum1 = validation.validationError(num: valiNum1)
-        } while valiNum1 >= 1
+        } while valiNum1 == 1
         
+        //Otro repeat para validar si cumple con la edad
         repeat{
-            print("Inregrese año de nacimiento: ")
+            print("Ingrese año de nacimiento: AAAA ")
             inputDataPP.birthYear = InputsOutputsData.getInputS()
-            //Validar con un diccionario que no tenga letras
-            //Validar que no tenga caracteres especiaes
-            year = Int(inputDataPP.birthYear)!
-            
-            valiNum1=0
+            validationInt = validation.isInt(string: inputDataPP.birthYear)
+            if (validationInt == true){
+                inputDataPP.year = Int(inputDataPP.birthYear)!
+                valiNum1 = validation.futureYear(num: inputDataPP.year)
+                valiNum1 = validation.validationError(num: valiNum1)
+            } else {
+                valiNum1 = 1
+            }
+        }while valiNum1 == 1
+        //
+        repeat{
+           print("Ingrese mes de nacimiento: MM ")
+            inputDataPP.birthMonth = InputsOutputsData.getInputS()
+            validationInt = validation.isInt(string: inputDataPP.birthMonth)
+            if (validationInt == true){
+                inputDataPP.month = Int(inputDataPP.birthMonth)!
+                valiNum1 = validation.monthError(num: inputDataPP.month)
+                valiNum1 = validation.validationError(num: valiNum1)
+            } else {
+                valiNum1 = 1
+            }
+        }while valiNum1 == 1
+        
+        //
+        repeat{
+           print("Ingrese día de nacimiento: DD")
+            inputDataPP.birthDay = InputsOutputsData.getInputS()
+            validationInt = validation.isInt(string: inputDataPP.birthDay)
+            if (validationInt == true){
+                inputDataPP.day = Int(inputDataPP.birthDay)!
+                valiNum1 = validation.dayError(num: inputDataPP.day)
+                valiNum1 = validation.validationError(num: valiNum1)
+            } else {
+                valiNum1 = 1
+            }
         }while valiNum1 == 1
         
     }
-    
     
 }
