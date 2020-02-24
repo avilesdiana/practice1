@@ -12,6 +12,7 @@
 		6FFC86B623FE2AF800F4386C /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC86B523FE2AF800F4386C /* MainData.swift */; };
 		6FFC86B823FE334B00F4386C /* moralPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC86B723FE334B00F4386C /* moralPerson.swift */; };
 		B2A73F002402682000331A8F /* physicalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A73EFF2402682000331A8F /* physicalPerson.swift */; };
+		B2A73F022403246C00331A8F /* validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A73F012403246C00331A8F /* validations.swift */; };
 		B2DA075A2401BEEE00147B37 /* dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA07592401BEEE00147B37 /* dictionaries.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		6FFC86B523FE2AF800F4386C /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
 		6FFC86B723FE334B00F4386C /* moralPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moralPerson.swift; sourceTree = "<group>"; };
 		B2A73EFF2402682000331A8F /* physicalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = physicalPerson.swift; sourceTree = "<group>"; };
+		B2A73F012403246C00331A8F /* validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validations.swift; sourceTree = "<group>"; };
 		B2DA07592401BEEE00147B37 /* dictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dictionaries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				6FFC86B723FE334B00F4386C /* moralPerson.swift */,
 				B2DA07592401BEEE00147B37 /* dictionaries.swift */,
 				B2A73EFF2402682000331A8F /* physicalPerson.swift */,
+				B2A73F012403246C00331A8F /* validations.swift */,
 			);
 			path = SegundaParte;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				6FFC86B823FE334B00F4386C /* moralPerson.swift in Sources */,
 				6FFC86A723FE16B000F4386C /* main.swift in Sources */,
 				B2A73F002402682000331A8F /* physicalPerson.swift in Sources */,
+				B2A73F022403246C00331A8F /* validations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
