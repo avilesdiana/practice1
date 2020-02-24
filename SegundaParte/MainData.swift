@@ -25,6 +25,7 @@ class MainData {
                 numRegresar = 0
                 InputsOutputsData.clearScreen()
                 physicPerson.dataChoiceFP()
+              
                 
             case "b" :
                 numRegresar = 0

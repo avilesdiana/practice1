@@ -70,6 +70,7 @@ class physicalPersonClass {
             valiNum1 = validation.validationError(num: valiNum1)
         } while valiNum1 == 1
         
+        
         //Otro repeat para validar si cumple con la edad
         repeat{
             print("Ingrese año de nacimiento: AAAA ")
@@ -110,6 +111,9 @@ class physicalPersonClass {
                 valiNum1 = 1
             }
         }while valiNum1 == 1
+        // fin del otro repeat de que si tiene la edad
+        
+       //print("\(physicalPersonData(fatherLastName: inputDataPP.fatherLastName, motherLastName: inputDataPP.motherLastName, names: inputDataPP.names, birthYear: "0", year: inputDataPP.year, birthMonth: "0", month: inputDataPP.month, birthDay: "0", day: inputDataPP.day) )")
         
     }
     

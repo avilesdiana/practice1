@@ -78,6 +78,25 @@ class validations {
         return validate
     }
     
+    //
+    func filterAccentFromName(fLN : String, mLN: String, nameS : String ) -> (String, String, String) {
+        
+        var arrayNames : [String] = [fLN, mLN, nameS]
+        for (index, var name) in arrayNames.enumerated(){
+            name = name.uppercased()
+            name = name.replacingOccurrences(of: "Á", with: "A")
+            name = name.replacingOccurrences(of: "É", with: "E")
+            name = name.replacingOccurrences(of: "Í", with: "I")
+            name = name.replacingOccurrences(of: "Ó", with: "O")
+            name = name.replacingOccurrences(of: "Ú", with: "U")
+            name = name.replacingOccurrences(of: "Ñ", with: "&")
+            arrayNames[index] = name
+        }
+        print("SI ESTOY AQUI \(fLN),\(mLN),\(nameS)")
+        return (fLN,mLN, nameS)
+        
+    }
+    //
     
     //
     func validationError(num : Int) -> Int{
