@@ -258,34 +258,7 @@ class dictionaries{
     ]
     
     //
-    let charactersNotAllowedTable = [
-        "!",
-        "%",
-        "&",
-        "/",
-        "(",
-        "$",
-        ")",
-        "=",
-        "[",
-        "]",
-        "{",
-        "}",
-        "+",
-        "<",
-        "*",
-        "–",
-        ">",
-        "º",
-        "ª",
-        "\\",
-        "^",
-        "`",
-        "´",
-        "·",
-        ".",
-        ","
-    ]
+    
     
     //
     let letterValidationTable = [
@@ -319,9 +292,6 @@ class dictionaries{
         "Z" ]
     
     //
-    let nameWithChCLlL : [String: String] = [
-        "CH" : "C",
-        "LL" : "L"
-    ]
+
     //
 }

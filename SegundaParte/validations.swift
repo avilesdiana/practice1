@@ -15,7 +15,7 @@ class validations {
         let caracteres: Int = words.count
         var validate: Int
         
-        if (caracteres > 1) {
+        if (caracteres > 2) {
             validate = 0
         } else {
             validate = 1
@@ -110,7 +110,7 @@ class validations {
     }
     //
     func charactersSpecial(wordS : String) -> Int{
-        let charSpe = ["!","$","%","&","/","(",")","=","+","[","]","{","}",">","<","*","–","^","º","ª","\\","·","´","`","Ç","ç"]
+        let charSpe = ["!","$","%","&","/","(",")","=","+","[","]","{","}",">","<","*","–","^","º","ª","\\","·","´","`","Ç","ç",";",",","."]
         var invalid = Bool()
         var validate = Int()
         
@@ -121,10 +121,35 @@ class validations {
                 if invalid == true {
                     validate = 5
                 }
+              
             }
         }
+    
         
-          return validate
+        return validate
+    }
+    //
+    func splitName(name: String) ->(validate:Int, wordS: String) {
+       var wordS = String()
+        var validate = Int()
+        
+        let name: [Substring] = name.split(separator: " ")
+        //for wordS in name {
+          //  print(wordS)
+        //}
+        if (name[0] == "MARIA"){
+            validate = 6
+            wordS = String(name[1])
+        }else {
+            
+             wordS = String(name[0])
+             validate = 0
+        }
+       
+        
+    return (validate, wordS)
+    //name.forEach({ print($0) })
+        //return (nameN, validate)
     }
     //
     func validationError(num : Int) -> Int{

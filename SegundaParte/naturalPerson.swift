@@ -38,84 +38,97 @@ class naturalPersonClass {
     func dataChoiceFP() -> (fLN: String, mLN: String, nLN: String, aNP: Int, mNP: Int, dNP: Int) {
         
         var valiNum1 = Int()
+        var valiNum2 = Int()
         
         
         print("\n\t\t P E R S O N A S   F I S I C A S\n")
         print(" Ingresar los siguientes datos...\n")
+        print(" si tienes un solo apellido, ingresarlo en apellido Paterno")
         
+        //
         repeat {
             print("Apellido paterno: ")
             //Validar que no tenga caracteres especiaes
             inputDataPP.fatherLastName = InputsOutputsData.getInputS()
-            valiNum1 = validation.validationStringComplete(words: inputDataPP.fatherLastName)
+            //valiNum1 = validation.validationStringComplete(words: inputDataPP.fatherLastName)
             valiNum1 = validation.charactersSpecial(wordS: inputDataPP.fatherLastName)
             valiNum1 = validation.validationError(num: valiNum1)
+            
         } while valiNum1 == 1
         
         repeat {
             print("Apellido materno: ")
             //Validar que no tenga caracteres especiaes
             inputDataPP.motherLastName = InputsOutputsData.getInputS()
-            valiNum1 = validation.validationStringComplete(words: inputDataPP.motherLastName)
+            //valiNum1 = validation.validationStringComplete(words: inputDataPP.motherLastName)
             valiNum1 = validation.charactersSpecial(wordS: inputDataPP.motherLastName)
             valiNum1 = validation.validationError(num: valiNum1)
+            
         } while valiNum1 == 1
         
-        repeat {
-            print("Nombres: ")
-            //Validar que no tenga caracteres especiaes
-            inputDataPP.names = InputsOutputsData.getInputS()
-            valiNum1 = validation.validationStringComplete(words: inputDataPP.names)
-            valiNum1 = validation.charactersSpecial(wordS: inputDataPP.names)
-            valiNum1 = validation.validationError(num: valiNum1)
-        } while valiNum1 == 1
+        if (inputDataPP.fatherLastName.isEmpty == false){
+            
+            repeat {
+                print("Nombres: ")
+                //Validar que no tenga caracteres especiaes
+                inputDataPP.names = InputsOutputsData.getInputS()
+                valiNum1 = validation.validationStringComplete(words: inputDataPP.names)
+                print("\(valiNum1)")
+                valiNum2 = validation.charactersSpecial(wordS: inputDataPP.names)
+                print("\(valiNum2)")
+                // valiNum1 = validation.validationError(num: valiNum1)
+                //print("\(valiNum1)")
+            } while (valiNum1 == 1 || valiNum2 >  5)
+            
+            
+            //Otro repeat para validar si cumple con la edad
+            repeat{
+                print("Ingrese año de nacimiento: AAAA ")
+                inputDataPP.birthYear = InputsOutputsData.getInputS()
+                validationInt = validation.isInt(string: inputDataPP.birthYear)
+                if (validationInt == true){
+                    inputDataPP.year = Int(inputDataPP.birthYear)!
+                    valiNum1 = validation.futureYear(num: inputDataPP.year)
+                    valiNum1 = validation.validationError(num: valiNum1)
+                } else {
+                    valiNum1 = 1
+                }
+            }while valiNum1 == 1
+            //
+            repeat{
+                print("Ingrese mes de nacimiento: MM ")
+                inputDataPP.birthMonth = InputsOutputsData.getInputS()
+                validationInt = validation.isInt(string: inputDataPP.birthMonth)
+                if (validationInt == true){
+                    inputDataPP.month = Int(inputDataPP.birthMonth)!
+                    valiNum1 = validation.monthError(num: inputDataPP.month)
+                    valiNum1 = validation.validationError(num: valiNum1)
+                } else {
+                    valiNum1 = 1
+                }
+            }while valiNum1 == 1
+            
+            //
+            repeat{
+                print("Ingrese día de nacimiento: DD")
+                inputDataPP.birthDay = InputsOutputsData.getInputS()
+                validationInt = validation.isInt(string: inputDataPP.birthDay)
+                if (validationInt == true){
+                    inputDataPP.day = Int(inputDataPP.birthDay)!
+                    valiNum1 = validation.dayError(num: inputDataPP.day)
+                    valiNum1 = validation.validationError(num: valiNum1)
+                } else {
+                    valiNum1 = 1
+                }
+            }while valiNum1 == 1
+            // fin del otro repeat de que si tiene la edad
+            return (inputDataPP.fatherLastName.uppercased(), inputDataPP.motherLastName.uppercased(), inputDataPP.names.uppercased(), inputDataPP.year, inputDataPP.month, inputDataPP.day)
+            //print("\(physicalPersonData(fatherLastName: inputDataPP.fatherLastName, motherLastName: inputDataPP.motherLastName, names: inputDataPP.names, birthYear: "0", year: inputDataPP.year, birthMonth: "0", month: inputDataPP.month, birthDay: "0", day: inputDataPP.day) )")
+        }else{
+            print("Ingresa al menos un apellido")
+        }
         
-        
-        //Otro repeat para validar si cumple con la edad
-        repeat{
-            print("Ingrese año de nacimiento: AAAA ")
-            inputDataPP.birthYear = InputsOutputsData.getInputS()
-            validationInt = validation.isInt(string: inputDataPP.birthYear)
-            if (validationInt == true){
-                inputDataPP.year = Int(inputDataPP.birthYear)!
-                valiNum1 = validation.futureYear(num: inputDataPP.year)
-                valiNum1 = validation.validationError(num: valiNum1)
-            } else {
-                valiNum1 = 1
-            }
-        }while valiNum1 == 1
-        //
-        repeat{
-           print("Ingrese mes de nacimiento: MM ")
-            inputDataPP.birthMonth = InputsOutputsData.getInputS()
-            validationInt = validation.isInt(string: inputDataPP.birthMonth)
-            if (validationInt == true){
-                inputDataPP.month = Int(inputDataPP.birthMonth)!
-                valiNum1 = validation.monthError(num: inputDataPP.month)
-                valiNum1 = validation.validationError(num: valiNum1)
-            } else {
-                valiNum1 = 1
-            }
-        }while valiNum1 == 1
-        
-        //
-        repeat{
-           print("Ingrese día de nacimiento: DD")
-            inputDataPP.birthDay = InputsOutputsData.getInputS()
-            validationInt = validation.isInt(string: inputDataPP.birthDay)
-            if (validationInt == true){
-                inputDataPP.day = Int(inputDataPP.birthDay)!
-                valiNum1 = validation.dayError(num: inputDataPP.day)
-                valiNum1 = validation.validationError(num: valiNum1)
-            } else {
-                valiNum1 = 1
-            }
-        }while valiNum1 == 1
-        // fin del otro repeat de que si tiene la edad
-        
-       //print("\(physicalPersonData(fatherLastName: inputDataPP.fatherLastName, motherLastName: inputDataPP.motherLastName, names: inputDataPP.names, birthYear: "0", year: inputDataPP.year, birthMonth: "0", month: inputDataPP.month, birthDay: "0", day: inputDataPP.day) )")
-        
-        return(inputDataPP.fatherLastName.uppercased(), inputDataPP.motherLastName.uppercased(), inputDataPP.names.uppercased(), inputDataPP.year, inputDataPP.month, inputDataPP.day)
+        return("0", "0", "0", 0, 0, 0)
     }
     
 }
