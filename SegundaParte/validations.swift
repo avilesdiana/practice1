@@ -10,7 +10,7 @@ import Foundation
 
 class validations {
     let date = DateComponents()
-    //
+    //validate that you put more than one character in the string
     func validationStringComplete(words: String) -> Int {
         let caracteres: Int = words.count
         var validate: Int
@@ -23,18 +23,80 @@ class validations {
         return validate
     }
     
-    // func validationStrinSpace(words:String) -> Int {
-    //var validate : Int
+     //validate that you put more than one character in the string
+    func validationStringCompleteDate(words: String) -> Int {
+        let caracteres: Int = words.count
+        var validate: Int
+        
+        if (caracteres <=  1) {
+            validate = 1
+        } else {
+            validate = 0
+        }
+        return validate
+    }
     
-    // if words.isEmpty {
-    //validate = 0
-    //} else {
-    //  validate = 1
-    //}
-    //return validate
-    //}
+     //validate that you put more than one character in the string
+    func validationStringCompleteFECHA(words: String) -> Int {
+        let caracteres: Int = words.count
+        var validate: Int
+        
+        if (caracteres != 2 ) {
+            validate = 1
+        } else {
+            validate = 0
+        }
+        return validate
+    }
+    //validate that you put more than one character in the string
+    func validationStringCompleteYear(words: String) -> Int {
+        let caracteres: Int = words.count
+        var validate: Int
+        
+        if (caracteres != 4 ) {
+            validate = 1
+        } else {
+            validate = 0
+        }
+        return validate
+    }
     
-    //
+    //function that union the date
+    //@Parameters : YEAR, MONTH, DAY in STRING
+    //@Return Validation the date ( >18 , NOT FUTURE DATE )
+    func unionDateValidate(year: String, month: String , day: String) -> Int {
+        var validate = Int()
+        let calendar = Calendar.current
+        let today = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "DD:MM:YYY"
+        
+        let text : String = "\(day):\(month):\(year)"
+        print("\(text)")
+        let fecha = dateFormatter.date(from: text)
+        
+        if fecha! > Date(){
+            // val = false
+            print("LA FECHA NO PUEDE SER FUTURA!")
+            validate = 1
+        }else{
+            validate = 0
+            let typeDate = calendar.dateComponents([.year, .month, .day], from: fecha!, to: today)
+            let ageValidate = typeDate.year!
+            if ageValidate < 18{
+                print("Persona Mayor a 18 años, no puede registrarse")
+                validate = 1
+            } else{
+                validate = 0
+            }
+        }
+        
+        
+        return (validate)
+    }
+    
+    //validate that goal only integers
     func isInt(string: String) -> Bool {
         return Int(string) != nil
     }
@@ -78,7 +140,7 @@ class validations {
         return validate
     }
     
-    //
+    //remove accents and replace a other letter
     func accentName(fLN : String, mLN: String, nameS : String ) -> (fLNN : String, mLNN: String, nameSS : String )  {
         
         var fLNN = ""
@@ -108,49 +170,63 @@ class validations {
         return (fLNN,mLNN, nameSS)
         
     }
-    //
+    //remove de characters
     func charactersSpecial(wordS : String) -> Int{
         let charSpe = ["!","$","%","&","/","(",")","=","+","[","]","{","}",">","<","*","–","^","º","ª","\\","·","´","`","Ç","ç",";",",","."]
         var invalid = Bool()
         var validate = Int()
-        
-        
+
         for character in wordS{
             if charSpe.contains(String(character)){
                 invalid = true
                 if invalid == true {
                     validate = 5
                 }
-              
+                
             }
         }
-    
-        
         return validate
     }
-    //
-    func splitName(name: String) ->(validate:Int, wordS: String) {
-       var wordS = String()
-        var validate = Int()
+    
+    
+    //remove unwanted words, such as abbreviations
+    func splitName(name: String, fName:String, mName:String) ->(nameN: String, fNameNew: String, mNameNew: String) {
+        let abrevName = dictionaries()
+        var nameN = String()
+        var fNameN = String()
+        var mNameN = String()
         
-        let name: [Substring] = name.split(separator: " ")
-        //for wordS in name {
-          //  print(wordS)
-        //}
-        if (name[0] == "MARIA"){
-            validate = 6
-            wordS = String(name[1])
-        }else {
-            
-             wordS = String(name[0])
-             validate = 0
+        var nameComplete : [String] = [name, fName, mName]
+        var count=0
+        
+        for var eachWord in nameComplete {
+            var separateWords = eachWord.components(separatedBy: " ")
+            for onlyName in separateWords {
+                if abrevName.wordsNotUseRFCNaturalPerson.contains(onlyName){
+                    eachWord = eachWord.replacingOccurrences(of: " " + onlyName + " ", with: " ")
+                    if onlyName == separateWords.first{
+                        eachWord = eachWord.replacingOccurrences(of: onlyName + " ", with: "")
+                        separateWords = eachWord.components(separatedBy: " ")
+                    }else if onlyName == separateWords.last {
+                        eachWord = eachWord.replacingOccurrences(of: " " + onlyName, with: "")
+                        separateWords = eachWord.components(separatedBy: " ")
+                    }
+                }
+            }
+            nameComplete[count] = eachWord
+            count += 1
         }
-       
         
-    return (validate, wordS)
-    //name.forEach({ print($0) })
+        nameN = nameComplete[0]
+        fNameN = nameComplete[1]
+        mNameN = nameComplete[2]
+        
+        return (nameN, fNameN, mNameN)
+        //name.forEach({ print($0) })
         //return (nameN, validate)
     }
+    //
+    
     //
     func validationError(num : Int) -> Int{
         var validate : Int

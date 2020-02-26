@@ -8,6 +8,7 @@
 
 import Foundation
 
+//class that receives and prints
 class inputsOutputsData{
     
     //This function collect the data entered by the user

@@ -240,7 +240,8 @@ class dictionaries{
         "MC",
         "MAC",
         "VON",
-        "VAN"
+        "VAN",
+        "DE"
     ]
     
     //
